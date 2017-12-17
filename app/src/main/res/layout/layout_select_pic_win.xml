@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_width="match_parent" android:layout_height="160dp">
+    <LinearLayout
+        android:background="@drawable/rect_fcfcfc_solid_8"
+        android:id="@+id/ll_function"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_album"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="选取照片"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+        <View
+            android:background="@color/split_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
+        <TextView
+            android:id="@+id/tv_camera"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="拍照"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+    <View
+        android:layout_below="@id/ll_function"
+        android:id="@+id/gap"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <TextView
+        android:background="@drawable/rect_ffffff_solid_15"
+        android:layout_below="@id/gap"
+        android:id="@+id/tv_cancel"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:text="取消"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+</RelativeLayout>

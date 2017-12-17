@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView
+        android:src="@mipmap/icon_login_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/iv_close"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:src="@mipmap/icon_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp" />
+    <RelativeLayout
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/rl_register_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="10sp"
+            android:id="@+id/tv_label1"
+            android:textColor="@color/grey_ccd0d5"
+            android:text="注册代表你同意"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="10sp"
+            android:layout_toRightOf="@id/tv_label1"
+            android:id="@+id/tv_privacy"
+            android:textColor="@color/blue_00001b"
+            android:text="隐私条款"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toRightOf="@id/tv_privacy"
+            android:textSize="10sp"
+            android:id="@+id/tv_label3"
+            android:textColor="@color/grey_ccd0d5"
+            android:text="和"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_toRightOf="@id/tv_label3"
+            android:textSize="10sp"
+            android:id="@+id/tv_protocol"
+            android:textColor="@color/blue_00001b"
+            android:text="过客服务使用协议"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <TextView
+        android:background="@drawable/rect_ffffff_solid_cococo_4"
+        android:id="@+id/tv_register"
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/blue_1b2839"
+        android:gravity="center"
+        android:text="注册"
+        android:textSize="16sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_above="@id/rl_register_info"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+    <TextView
+        android:background="@drawable/rect_1b2839_solid_4"
+        android:id="@+id/tv_login"
+        android:layout_marginBottom="40dp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="登录"
+        android:textSize="16sp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_above="@id/tv_register"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+</RelativeLayout>

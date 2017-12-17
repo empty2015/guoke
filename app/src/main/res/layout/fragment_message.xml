@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/tl_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_marginTop="150dp"
+            android:id="@+id/image_empty"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/icon_message_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tv_tip1"
+            android:textColor="@color/grey_ccd0d5"
+            android:textSize="15sp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/image_empty"
+            android:text="登录过客，及时查看那些属于你的\n精彩时刻"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_action"
+            android:padding="10dp"
+            android:textColor="@color/blue_1b2839"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/tv_tip1"
+            android:text="登录/注册"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</FrameLayout>

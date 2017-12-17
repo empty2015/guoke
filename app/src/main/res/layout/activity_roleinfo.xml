@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.jiaye.guoke.base.component.CommonHeaderView
+
+        android:id="@+id/headerview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </com.jiaye.guoke.base.component.CommonHeaderView>
+    <com.jiaye.guoke.base.component.RoundCornersImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:radius="35dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_default_header"
+        android:id="@+id/image_header"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/headerview"
+        android:layout_width="120dp"
+        android:layout_height="120dp" />
+    <com.jiaye.guoke.base.component.ClearEditText
+        android:layout_marginTop="40dp"
+        android:hint="请输入昵称"
+        android:maxLength="10"
+        android:id="@+id/edit_nick_name"
+        android:textColor="@color/blue_1b2839"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@null"
+        android:layout_below="@id/image_header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <View
+        android:id="@+id/view_line1"
+        android:layout_marginTop="1px"
+        android:background="@color/split_line"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/edit_nick_name"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+
+    <LinearLayout
+        android:id="@+id/ll_sex"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/view_line1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_weight="1"
+            android:id="@+id/rl_left"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/blue_1b2839"
+                android:text="男"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/rb_male"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <View
+                android:layout_marginBottom="1px"
+                android:background="@color/split_line"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+        </RelativeLayout>
+        <View
+            android:layout_width="10dp"
+            android:layout_height="match_parent"/>
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_below="@id/view_line1"
+            android:id="@+id/rl_right"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="@color/blue_1b2839"
+                android:text="女"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/rb_female"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <View
+                android:layout_marginBottom="1px"
+                android:background="@color/split_line"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+        </RelativeLayout>
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/tv_action"
+        android:textColor="@drawable/selector_login_send_verify_text"
+        android:enabled="false"
+        android:background="@drawable/selector_login_send_verify_btn"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/ll_sex"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:text="完成"
+        android:layout_alignParentRight="true"
+        android:layout_width="100dp"
+        android:layout_height="40dp" />
+</RelativeLayout>

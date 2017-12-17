@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <RadioButton
+            android:id="@+id/rb_home"
+            android:drawableTop="@drawable/selector_tab_home"
+            android:text=""
+            android:paddingTop="8dp"
+            android:background="#00000000"
+            android:button="@null"
+            android:gravity="center_horizontal|bottom"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/rb_discovery"
+            android:drawableTop="@drawable/selector_tab_discovery"
+            android:text=""
+            android:paddingTop="8dp"
+            android:background="#00000000"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center_horizontal|bottom"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/rb_submit"
+            android:drawableTop="@drawable/selector_tab_submit"
+            android:text=""
+            android:paddingTop="8dp"
+            android:background="#00000000"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center_horizontal|bottom"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/rb_message"
+            android:drawableTop="@drawable/selector_tab_message"
+            android:text=""
+            android:paddingTop="8dp"
+            android:background="#00000000"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center_horizontal|bottom"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/rb_account"
+            android:drawableTop="@drawable/selector_tab_account"
+            android:text=""
+            android:paddingTop="8dp"
+            android:background="#00000000"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center_horizontal|bottom"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </RadioGroup>
+    <View
+        android:layout_marginBottom="5dp"
+        android:layout_above="@id/radio_group"
+        android:id="@+id/split_line"
+        android:background="@color/split_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+    <FrameLayout
+        android:layout_above="@id/split_line"
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+</RelativeLayout>
