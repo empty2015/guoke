@@ -8,6 +8,7 @@ import android.text.method.DigitsKeyListener;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 
+import com.jiaye.guoke.base.component.CustomToast;
 import com.jiaye.guoke.bean.AccountBean;
 import com.jiaye.guoke.module.account.AccountManager;
 import com.jiaye.guoke.module.account.AccountUtil;
@@ -95,13 +96,13 @@ public class InputPwdActivity extends InputBaseActivity {
                 if(data.getResult().equals("1")){
                     LoginManager.getInstance().setUserInfo(data.getUser());
                 }else{
-
+                    CustomToast.showToast(InputPwdActivity.this,data.getMessage());
                 }
             }
 
             @Override
             public void onFailure(HttpCode httpCode) {
-
+                CustomToast.showToast(InputPwdActivity.this,httpCode.getErrorMsg());
             }
         });
     }

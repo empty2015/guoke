@@ -5,7 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.jiaye.guoke.base.BaseActivity;
+import com.jiaye.guoke.base.component.CustomToast;
 import com.jiaye.guoke.module.account.AccountManager;
+import com.jiaye.guoke.net.ApiManager;
+import com.jiaye.guoke.sms.SMSManger;
+import com.jiaye.guoke.sms.interfaces.ISMSCallBack;
 
 import org.reactivestreams.Subscription;
 
@@ -31,6 +35,23 @@ public class InputVerifyActivity extends InputBaseActivity {
         setInputHint("请输入验证码");
         setNumTipVisibility(View.GONE);
         setActionText("下一步");
+        sendVerifyCode();
+    }
+
+    private void sendVerifyCode(){
+        String mobile = AccountManager.getInstance().getMobile();
+        SMSManger.getInstance().sendVerifyCode(mobile, new ISMSCallBack() {
+            @Override
+            public void onSuccess() {
+                doSendVerifyCode();
+            }
+
+            @Override
+            public void onFailed(String error) {
+                CustomToast.showToast(InputVerifyActivity.this,error);
+                onBackPressed();
+            }
+        });
     }
 
     private void doSendVerifyCode(){
@@ -88,7 +109,19 @@ public class InputVerifyActivity extends InputBaseActivity {
 
     @Override
     protected void doAction() {
-        AccountManager.getInstance().setVerifyCode(getInput());
-        startActivity(new Intent(this,InputPwdActivity.class));
+        String mobile = AccountManager.getInstance().getMobile();
+        String code = getInput();
+        SMSManger.getInstance().verifyCode(mobile,code,new ISMSCallBack(){
+            @Override
+            public void onSuccess() {
+                AccountManager.getInstance().setVerifyCode(getInput());
+                startActivity(new Intent(InputVerifyActivity.this,InputPwdActivity.class));
+            }
+            @Override
+            public void onFailed(String error) {
+                CustomToast.showToast(InputVerifyActivity.this,error);
+            }
+        });
+
     }
 }

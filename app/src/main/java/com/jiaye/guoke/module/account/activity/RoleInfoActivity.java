@@ -26,6 +26,8 @@ import com.jiaye.guoke.R;
 import com.jiaye.guoke.base.BaseActivity;
 import com.jiaye.guoke.base.component.CommonHeaderView;
 import com.jiaye.guoke.base.component.RoundCornersImageView;
+import com.jiaye.guoke.load.IUpload;
+import com.jiaye.guoke.load.UploadManager;
 import com.jiaye.guoke.module.account.view.SelectPicPopWindow;
 import com.jiaye.guoke.util.PhoneUtil;
 
@@ -153,7 +155,17 @@ public class RoleInfoActivity extends BaseActivity {
     }
 
     private void doAction(){
+        UploadManager.getInstance().uploadFile(headerFile, new IUpload() {
+            @Override
+            public void onSuccess(String url) {
 
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
     }
 
     Uri photoUri = null;

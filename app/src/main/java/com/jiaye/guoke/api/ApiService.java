@@ -18,4 +18,6 @@ public interface ApiService {
     @POST("user/login")
     Observable<AccountBean> loginByPwd(@Body RequestBody body);
 
+    @POST("user/checkMobile")
+    Observable<AccountBean> checkMobile(@Body RequestBody body);
 }

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: "com.mob.sdk"
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -19,6 +19,13 @@ android {
     }
 }
 
+MobSDK {
+    appKey "1d753cde3af56"
+    appSecret "cbda86f9ab013abf711ae647919fb78e"
+
+    SMSSDK {}
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.3.0'
@@ -32,6 +39,10 @@ dependencies {
     //rxJava
     compile'io.reactivex.rxjava2:rxjava:2.0.1'
     compile'io.reactivex.rxjava2:rxandroid:2.0.1'
-
+    //GSON
     compile 'com.google.code.gson:gson:2.8.1'
+    //EVENTBUS
+    compile 'org.greenrobot:eventbus:3.1.1'
+    //七牛
+    compile 'com.qiniu:qiniu-android-sdk:7.3.+'
 }

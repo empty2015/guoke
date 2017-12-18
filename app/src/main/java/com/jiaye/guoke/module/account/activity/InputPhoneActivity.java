@@ -7,13 +7,18 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jiaye.guoke.R;
 import com.jiaye.guoke.base.BaseActivity;
 import com.jiaye.guoke.base.component.CommonHeaderView;
 import com.jiaye.guoke.base.component.CustomToast;
+import com.jiaye.guoke.bean.AccountBean;
 import com.jiaye.guoke.module.account.AccountManager;
 import com.jiaye.guoke.module.account.AccountUtil;
+import com.jiaye.guoke.net.ApiManager;
+import com.jiaye.guoke.net.HttpCode;
+import com.jiaye.guoke.net.interfaces.IHttpResult;
 import com.jiaye.guoke.util.StringUtil;
 
 /**
@@ -51,10 +56,28 @@ public class InputPhoneActivity extends InputBaseActivity {
     protected void doAction() {
         AccountManager.getInstance().setMobile(getInput());
         if(AccountManager.getInstance().getAccountType() == AccountUtil.ACCOUNT_TYPE_REGISTER){
-            startActivity(new Intent(this,InputVerifyActivity.class));
+            checkMobile();
         }else{
             startActivity(new Intent(this,InputPwdActivity.class));
         }
 
+    }
+
+    private void checkMobile(){
+        ApiManager.getInstance().checkMobile(getInput(), new IHttpResult<AccountBean>() {
+            @Override
+            public void onSuccess(AccountBean data) {
+                if(data.getResult().equals("1")){
+                    startActivity(new Intent(InputPhoneActivity.this,InputVerifyActivity.class));
+                }else{
+                    CustomToast.showToast(InputPhoneActivity.this,data.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(HttpCode httpCode) {
+                CustomToast.showToast(InputPhoneActivity.this,httpCode.getErrorMsg());
+            }
+        });
     }
 }
