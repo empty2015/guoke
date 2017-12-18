@@ -14,6 +14,8 @@ import com.jiaye.guoke.base.BaseActivity;
 import com.jiaye.guoke.base.component.CommonHeaderView;
 import com.jiaye.guoke.base.component.CustomToast;
 import com.jiaye.guoke.bean.AccountBean;
+import com.jiaye.guoke.load.IUpload;
+import com.jiaye.guoke.load.UploadManager;
 import com.jiaye.guoke.module.account.AccountManager;
 import com.jiaye.guoke.module.account.AccountUtil;
 import com.jiaye.guoke.net.ApiManager;
@@ -60,7 +62,6 @@ public class InputPhoneActivity extends InputBaseActivity {
         }else{
             startActivity(new Intent(this,InputPwdActivity.class));
         }
-
     }
 
     private void checkMobile(){

@@ -28,6 +28,7 @@ import static javax.xml.transform.OutputKeys.ENCODING;
 public class UploadManager {
     private final String QINIU_ACCESSKEY = "HWBRnB2D2TfP_cRB6qkeyHmHwCE-Yh0QVI8ZJ-4L";
     private final String QINIU_SECRETKEY = "2vy9y2JdSsR-B72WZpLD2VNlTaS0zJEf7dMSZHvj";
+    private final String QINIU_UPLOAD_PRE = "http://olvj1ky9b.bkt.clouddn.com/";
     private static UploadManager instance = null;
     com.qiniu.android.storage.UploadManager uploadManager;
     private String key = "zengtian1211@163.com";
@@ -61,10 +62,15 @@ public class UploadManager {
             @Override
             public void complete(String key, ResponseInfo info, JSONObject response) {
                 if(info.isOK()) {
-
+                    try {
+                        String url = QINIU_UPLOAD_PRE + response.getString("key");
+                        callBack.onSuccess(url);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 } else {
-                    Log.i("qiniu", "Upload Fail");
                     //如果失败，这里可以把info信息上报自己的服务器，便于后面分析上传错误原因
+                    callBack.onFailed("上次失败");
                 }
             }
         },null);
@@ -75,7 +81,7 @@ public class UploadManager {
             JSONObject _json = new JSONObject();
             long _dataline = System.currentTimeMillis() / 1000 + 3600;
             _json.put("deadline", _dataline);// 有效时间为一个小时
-            _json.put("scope", "kymobile");
+            _json.put("scope", "app-dazing");
             String _encodedPutPolicy = UrlSafeBase64.encodeToString(_json
                     .toString().getBytes());
             byte[] _sign = HmacSHA1Encrypt(_encodedPutPolicy, QINIU_SECRETKEY);
